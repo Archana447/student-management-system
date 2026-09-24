@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student ID Card</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f4f4f4;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .card{
+            width:320px;
+            background:white;
+            padding:20px;
+            border-radius:15px;
+            text-align:center;
+            box-shadow:0 0 15px rgba(0,0,0,0.2);
+        }
+
+        .card img{
+            width:120px;
+            height:120px;
+            border-radius:50%;
+            object-fit:cover;
+        }
+
+        .btn{
+            padding:10px 20px;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Student ID Card</h2>
+
+    {% if student[3] %}
+    <img src="{{ url_for('static', filename='uploads/' + student[3]) }}">
+    {% endif %}
+
+    <h3>{{ student[1] }}</h3>
+
+    <p><b>ID:</b> {{ student[0] }}</p>
+    <p><b>Course:</b> {{ student[2] }}</p>
+    <p><b>CGPA:</b> {{ student[4] }}</p>
+
+    <button onclick="window.print()" class="btn">
+        Print ID Card
+    </button>
+</div>
+
+</body>
+</html>
